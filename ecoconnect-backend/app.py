@@ -1,3 +1,4 @@
+from dotenv import load_dotenv
 from flask import Flask, request, jsonify
 from flask_pymongo import PyMongo, ObjectId
 from flask_bcrypt import Bcrypt
@@ -5,9 +6,11 @@ from flask_jwt_extended import JWTManager, create_access_token, jwt_required, ge
 import datetime
 import os
 
+load_dotenv()
+
 app = Flask(__name__)
 
-app.config["MONGO_URI"] = os.getenv("MONGO_URI", "mongodb+srv://vatsalbhuva11:mLAQwkxn5J9vrZIu@cluster0.0st3c.mongodb.net/dti?retryWrites=true&w=majority&appName=Cluster0")
+app.config["MONGO_URI"] = os.getenv("MONGO_URI")
 app.config["JWT_SECRET_KEY"] = os.getenv("JWT_SECRET_KEY", "123123")
 
 mongo = PyMongo(app)
