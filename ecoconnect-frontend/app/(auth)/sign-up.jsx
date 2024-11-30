@@ -5,6 +5,7 @@ import { View, Text, ScrollView, Dimensions, Alert, Image } from "react-native";
 import * as SecureStore from "expo-secure-store";
 import { CustomButton, FormField } from "../../components";
 import { useGlobalContext } from "../../context/GlobalProvider";
+import { REACT_APP_BACKEND_URI } from "@env";
 
 const SignUp = () => {
     const { setUser, setIsLogged } = useGlobalContext();
@@ -35,7 +36,7 @@ const SignUp = () => {
 
         try {
             const response = await fetch(
-                "https://daf5-2401-4900-5ab8-8d38-455f-4fc5-6848-6d26.ngrok-free.app/register",
+                `https://630b-2401-4900-5ab9-1eea-1717-62cd-c888-a626.ngrok-free.app/register`,
                 requestOptions
             );
             console.log("response: ", response);
